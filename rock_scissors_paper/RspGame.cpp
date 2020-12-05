@@ -9,11 +9,12 @@ void Initialize(char * scene, int& playerValue)
 	playerValue = 0;
 }
 
-bool Input(char * scene, int& playerValue)
+int Input(int value)
 {
-	Display(scene, "Input(-1.Exit, 0.Rock, 1.Scissors, 2.Paper): ");
-	scanf("%d", &playerValue);
-	return true;
+	if (value - 48 >= 0 && value - 48 <= 2)
+		return value - 48;
+	else
+		return -1;
 }
 
 void Playgame(char * scene, int& playerValue)

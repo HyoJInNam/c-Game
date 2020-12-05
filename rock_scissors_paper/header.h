@@ -7,6 +7,7 @@
 #include <string.h>
 #include <time.h>
 #include <windows.h> //system("cls"), sleep(1000 = 1sec) 
+#include <conio.h>
 
 
 #include"RspGame.h"

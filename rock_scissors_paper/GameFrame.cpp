@@ -17,9 +17,14 @@ void Display(char * scene, const char* str)
 void GameLoop(char* scene, int&  playerValue)
 {
 	Initialize(scene, playerValue);
-	while (Input(scene, playerValue)) {
-		if (Gameend(scene, playerValue)) break;
-		Playgame(scene, playerValue);
+	while (true) {
+		Display(scene, "Input(0.Rock, 1.Scissors, 2.Paper, ... exit");
+		if (_kbhit()) {
+			//playerValue = _getch() - 48;
+			playerValue = Input(_getch());
+			if (Gameend(scene, playerValue)) break;
+			Playgame(scene, playerValue);
+		}
 	}
 	exit(1);
 }
