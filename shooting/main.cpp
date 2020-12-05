@@ -1,5 +1,9 @@
-#include <stdio.h>
+#include "header.h"
 
 int main() {
-	printf("hello world!");
+
+	char scene[80] = { 0, };
+	int value = 0;
+
+	GameLoop(scene, value);
 }
