@@ -8,10 +8,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="GameFrame.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="screen.cpp" />
+    <ClCompile Include="mString.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
-    <ClInclude Include="GameFrame.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="screen.h" />
+    <ClInclude Include="mString.h" />
   </ItemGroup>
 </Project>

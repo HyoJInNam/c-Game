@@ -1,9 +1,16 @@
+
 #include "header.h"
 
 int main() {
+	Screen screen(80);
+	Player player("0-0¦®", 70);
 
-	char scene[80] = { 0, };
-	int value = 0;
-
-	GameLoop(scene, value);
+	while (true) {
+		screen.Clear();
+		player.Input();
+		player.Draw(&screen);
+		screen.Display();
+	}
+	exit(1);
+	return 0;
 }
