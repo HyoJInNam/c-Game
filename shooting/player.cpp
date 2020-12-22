@@ -31,9 +31,7 @@ void player::Input()
 			break;
 
 		case ' ':
-			pos++;
-			mStrncpy_s(face, face_size, "0-0¦®", face_size);
-			break;
+
 		case 'q':
 			return;
 		default:

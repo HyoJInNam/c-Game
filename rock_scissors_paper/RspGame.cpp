@@ -73,4 +73,5 @@ const char* RspValueCompare3(int value)
 	case 2:
 		return "Player Win!!";
 	}
+	return nullptr;
 }

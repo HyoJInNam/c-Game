@@ -6,9 +6,11 @@ typedef struct enemy {
 	bool isActive;
 	char* face;
 	int face_size;
-	int pos;
+	float pos;
+	float speed;
 
 	enemy(const char* face);
+	bool Initialize(const char* face);
 	bool Delete();
 
 	void Draw(const Screen* screen, const Player* player);

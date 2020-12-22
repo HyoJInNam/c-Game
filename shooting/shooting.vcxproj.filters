@@ -11,11 +11,13 @@
     <ClCompile Include="player.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="mString.cpp" />
+    <ClCompile Include="enemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="screen.h" />
     <ClInclude Include="mString.h" />
+    <ClInclude Include="enemy.h" />
   </ItemGroup>
 </Project>
