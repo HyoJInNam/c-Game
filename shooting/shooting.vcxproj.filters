@@ -12,6 +12,8 @@
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="mString.cpp" />
     <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="management.cpp" />
+    <ClCompile Include="bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -19,5 +21,7 @@
     <ClInclude Include="screen.h" />
     <ClInclude Include="mString.h" />
     <ClInclude Include="enemy.h" />
+    <ClInclude Include="management.h" />
+    <ClInclude Include="bullet.h" />
   </ItemGroup>
 </Project>

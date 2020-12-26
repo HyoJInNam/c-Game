@@ -127,15 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="management.cpp" />
     <ClCompile Include="mString.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="screen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bullet.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="header.h" />
+    <ClInclude Include="management.h" />
     <ClInclude Include="mString.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="screen.h" />

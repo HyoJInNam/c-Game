@@ -4,6 +4,7 @@
 player::player(const char * _face, int _pos)
 {
 	pos = _pos;
+	direct = 1;
 	face_size = strlen(_face);
 	face = (char*)malloc(sizeof(char) * face_size);
 	mStrncpy_s(face, face_size, _face, face_size);
@@ -15,25 +16,40 @@ bool player::Delete()
 	return true;
 }
 
-void player::Input()
+void player::Input(Bullet* bullet)
 {
 	if (_kbhit()) {
 		switch (_getch())
 		{
 		case 'a':
 			pos--;
+			direct = 0;
 			mStrncpy_s(face, face_size, "¦¯0-0", face_size);
 			break;
 
 		case 'd':
 			pos++;
+			direct = 1;
 			mStrncpy_s(face, face_size, "0-0¦®", face_size);
 			break;
 
 		case ' ':
+			bullet->isActive = true;
+			if (direct <= 0) {
+				bullet->pos = pos;
+				mStrncpy_s(bullet->face, bullet->face_size, bullet->left_face, bullet->face_size);
+
+			}
+			else {
+				bullet->pos = pos + face_size + 1;
+				mStrncpy_s(bullet->face, bullet->face_size, bullet->right_face, bullet->face_size);
+			}
+			
+			break;
 
 		case 'q':
 			return;
+
 		default:
 			break;
 		}
