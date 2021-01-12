@@ -1,23 +1,33 @@
 #include "header.h"
 #include "enemy.h"
 
-Enemy::Enemy(const char * face, const float speed)
+Enemy::Enemy(const char * baseFace, const char* demagedFace, const float speed)
 {
-	Initialize(face, speed);
+	Initialize(baseFace, demagedFace, speed);
 }
 
-bool Enemy::Initialize(const char * face, const float speed)
+bool Enemy::Initialize(const char * baseFace, const char* demagedFace, const float speed)
 {
-	isActive = false;
-
-	face_size = strlen(face) + 1;
+	face_size = strlen(baseFace) + 1;
 	this->face = (char*)malloc(sizeof(char) * face_size);
 	memset(this->face, '\0', face_size);
-	mStrncpy_s(this->face, face_size - 1, face, face_size - 1);
 
+	this->baseFace = (char*)malloc(sizeof(char) * face_size);
+	memset(this->baseFace, '\0', face_size);
+	mStrncpy_s(this->baseFace, face_size - 1, baseFace, face_size - 1);
+
+	this->demagedFace = (char*)malloc(sizeof(char) * face_size);
+	memset(this->demagedFace, '\0', face_size);
+	mStrncpy_s(this->demagedFace, face_size - 1, demagedFace, face_size - 1);
+
+	isActive = false;
+	isDemaged = false;
 	srand(rand());
 	pos = (rand() % 2 ^ 1) ? 1 : 80 - face_size - 1;
 	this->speed = speed;
+
+	delay = (1 / this->speed) * 2.5f;
+	delta_time = 0;
 	return true;
 }
 
@@ -51,6 +61,22 @@ void Enemy::Update(const Screen * screen, Player* player)
 		// player와 충돌
 		this->Dead();
 		player->Dead();
+	}
+
+	// bullet과 충돌시, 다른 표정
+	if (isDemaged == true)
+	{
+		if (delay <= delta_time)
+		{
+			isDemaged = false;
+			delta_time = 0;
+		}
+		mStrncpy_s(this->face, face_size - 1, demagedFace, face_size - 1);
+		delta_time++;
+	}
+	else
+	{
+		mStrncpy_s(this->face, face_size - 1, baseFace, face_size - 1);
 	}
 }
 

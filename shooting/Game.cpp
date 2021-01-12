@@ -8,7 +8,7 @@ int main() {
 	Bullet bullet(&player, "<", ">", 0.7f);
 
 	int enemy_count = 10;
-	Enemy enemy("*-*", 0.2f);
+	Enemy enemy("*-*", ">_<", 0.2f);
 	Enemies enemies(&enemy, 10);
 
 

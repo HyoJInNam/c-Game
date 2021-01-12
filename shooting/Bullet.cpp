@@ -21,8 +21,9 @@ Bullet::Bullet(const Player * player, const char * left_face, const char * right
 
 bool Bullet::Initialize(const Player * player, const float speed)
 {
+	mStrncpy_s(face, face_size, (player->direct <= 0) ? left_face : right_face, face_size);
+
 	isActive = false;
- 	mStrncpy_s(face, face_size, (player->direct <= 0) ? left_face : right_face, face_size);
 	pos = player->pos;
 	this->speed = speed;
 	return true;
@@ -58,7 +59,8 @@ void Bullet::Update(const Screen * screen, Enemies* enemies)
 			enemies->objects[i].pos <= pos && enemies->objects[i].pos + enemies->objects[i].face_size - 1 >= pos)
 		{
 			this->Dead();
-			enemies->objects[i].Dead();
+			//enemies->objects[i].Dead();
+			enemies->objects[i].isDemaged = true;
 			return;
 		}
 	}

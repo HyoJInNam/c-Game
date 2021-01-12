@@ -4,10 +4,10 @@ typedef struct Screen Screen;
 typedef struct Bullet Bullet;
 
 struct Player {
-	bool isActive;
-
 	char* face;
 	int face_size;
+
+	bool isActive;
 	int pos;
 	int direct;
 

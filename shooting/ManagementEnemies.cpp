@@ -10,7 +10,7 @@ ManagementEnemies::ManagementEnemies(const Enemy* object, int size)
 	objects[1].isActive = true;
 	next = 2;
 
-	delay = (1 / object->speed) * object->face_size * 3;
+	delay = (1 / object->speed) * (object->face_size * 3);
 	delta_time = 0;
 }
 
@@ -20,7 +20,7 @@ bool ManagementEnemies::Initialize(const Enemy* object, int size)
 	objects = (Enemy*)malloc(sizeof(Enemy) * max_size);
 	for (int i = 0; i < max_size; i++)
 	{
-		objects[i].Initialize(object->face, object->speed);
+		objects[i].Initialize(object->baseFace, object->demagedFace, object->speed);
 	}
 	return true;
 }

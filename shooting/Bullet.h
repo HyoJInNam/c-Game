@@ -5,12 +5,12 @@ typedef struct Player Player;
 typedef struct ManagementEnemies Enemies;
 
 struct Bullet {
-	bool isActive;
+	int face_size;
+	char* face;
 	char* left_face;
 	char* right_face;
 
-	char* face;
-	int face_size;
+	bool isActive;
 	float pos;
 	float speed;
 
