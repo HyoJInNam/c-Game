@@ -51,19 +51,7 @@ void Enemy::Update(const Screen * screen, Player* player)
 		return;
 	}
 
-	if (pos + face_size < player->pos) { 
-		pos += speed;
-	}
-	else if (pos > player->pos + player->face_size) {
-		pos -= speed;
-	}
-	else {
-		// player와 충돌
-		this->Dead();
-		player->Dead();
-	}
-
-	// bullet과 충돌시, 다른 표정
+	// update face
 	if (isDemaged == true)
 	{
 		if (delay <= delta_time)
@@ -77,6 +65,19 @@ void Enemy::Update(const Screen * screen, Player* player)
 	else
 	{
 		mStrncpy_s(this->face, face_size - 1, baseFace, face_size - 1);
+	}
+
+	// update movement
+	if (pos + face_size < player->pos) { 
+		pos += speed;
+	}
+	else if (pos > player->pos + player->face_size) {
+		pos -= speed;
+	}
+	else {
+		// collide palyer
+		this->Dead();
+		//player->Dead();
 	}
 }
 

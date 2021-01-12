@@ -19,7 +19,7 @@ int main() {
 
 		enemies.Update(&screen, &player);
 		player.Update(&screen);
-		bullet.Update(&screen, &enemies);
+		bullet.Update(&screen, &player, &enemies);
 
 		enemies.Draw(&screen, &player);
 		player.Draw(&screen);

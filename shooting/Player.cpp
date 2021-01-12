@@ -39,17 +39,7 @@ void Player::Input(Bullet* bullet)
 			break;
 
 		case ' ':
-			bullet->isActive = true;
-			if (direct <= 0)
-			{
-				bullet->pos = pos;
-				mStrncpy_s(bullet->face, bullet->face_size, bullet->left_face, bullet->face_size);
-			}
-			else
-			{
-				bullet->pos = pos + face_size + 1;
-				mStrncpy_s(bullet->face, bullet->face_size, bullet->right_face, bullet->face_size);
-			}
+			Shoot(bullet);
 			break;
 
 		case 'q':
@@ -76,4 +66,20 @@ void Player::Draw(Screen* screen) const
 void Player::Dead()
 {
 	isActive = false;
+}
+
+void Player::Shoot(Bullet * bullet)
+{
+	bullet->isActive = true;
+
+	if (direct <= 0)
+	{
+		bullet->pos = pos;
+		mStrncpy_s(bullet->face, bullet->face_size, bullet->left_face, bullet->face_size);
+	}
+	else
+	{
+		bullet->pos = pos + face_size + 1;
+		mStrncpy_s(bullet->face, bullet->face_size, bullet->right_face, bullet->face_size);
+	}
 }

@@ -19,4 +19,5 @@ struct Player {
 	void Draw(Screen* screen) const;
 
 	void Dead();
+	void Shoot(Bullet * bullet);
 };

@@ -1,5 +1,9 @@
 #pragma once
 
+typedef struct Screen Screen;
+typedef struct Player Player;
+typedef struct Enemy Enemy;
+
 typedef struct ManagementEnemies {
 	Enemy* objects;
 	int max_size;

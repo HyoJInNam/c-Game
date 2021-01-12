@@ -14,11 +14,11 @@ struct Bullet {
 	float pos;
 	float speed;
 
-	Bullet(const Player * player, const char* left_face, const char * right_face, const float speed);
-	bool Initialize(const Player * player, const float speed);
+	Bullet(Player * player, const char* left_face, const char * right_face, const float speed);
+	bool Initialize(Player * player, const char * left_face, const char * right_face, const float speed);
 	bool Delete();
 	void Draw(Screen* screen, Player* player) const;
-	void Update(const Screen * screen, Enemies* enemies);
+	void Update(const Screen * screen, const Player * player, Enemies* enemies);
 
 	void Dead();
 };
